@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disclosure Widget</title>
+
+    <style>
+        .hidden-text {
+            display: none;
+        }
+
+        .visible-text {
+            display: block !important;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <button id="trigger" aria-expanded="false">I am a button</button>
+    <div class="hidden-text" id="text">I am text</div>
+
+
+
+
+
+
+<script>
+    let trigger = document.querySelector('#trigger');
+    let text = document.querySelector('#text')
+
+    trigger.addEventListener('click', function(e){
+        text.classList.toggle("visible-text");
+        if(trigger.getAttribute('aria-expanded') == 'true') {
+            trigger.setAttribute('aria-expanded', 'false');
+        }else if(trigger.getAttribute('aria-expanded') == 'false') {
+            trigger.setAttribute('aria-expanded', 'true');
+        };
+    })
+</script>
+
+</body>
+</html>
